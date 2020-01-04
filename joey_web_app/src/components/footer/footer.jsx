@@ -7,16 +7,19 @@ export class Footer extends React.Component {
             <React.Fragment>
                     <section className = "footerNav">
                     <h1 >
-                        FOLLOW US ON SOCIAL MEDIA
+                        FOLLOW ME ON SOCIAL MEDIA
                     </h1>
 
                     <div className = "socialButtonsContainer">
                         
                         <SocialIcon className ="socialMediaButton"  url="http://twitter.com" />
-                        <SocialIcon className ="socialMediaButton" url ="facebook.com"/>
-                        <SocialIcon className ="socialMediaButton" url ="instagram.com"/>
+                        <SocialIcon className ="socialMediaButton" url ="http://facebook.com"/>
+                        <SocialIcon className ="socialMediaButton" url ="http://instagram.com"/>
+                        <SocialIcon className ="socialMediaButton" url ="http://youtube.com"/>
+                        <SocialIcon className ="socialMediaButton" url ="http://soundcloud.com"/>
+                        <SocialIcon className ="socialMediaButton" url ="http://spotify.com"/>
                     </div>
-                    <h3>
+                    <h3 >
                         &#169; 2019 Joey Tre' . Built by ChicCode, LLC
                     </h3>
 
