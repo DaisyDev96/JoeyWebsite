@@ -49,10 +49,15 @@ export class VideosScreen extends React.Component {
         return (
             <React.Fragment  >
                 { this.state.mounted === true ?(
-                    <section style = {styles.header } >
-                    <h1> Latest Video </h1>
-                        <ReactPlayer url = {this.state.latestVideo.uri} controls = {true}/>             
-                </section>
+                    <div>
+                        <section style = {styles.header } >
+                        <h1> Latest Video </h1>
+                            <ReactPlayer url = {this.state.latestVideo.uri} controls = {true}/>             
+                        </section>
+                        <section>
+                            
+                        </section>
+                    </div>    
                 ):(
                     <p> Loading...</p>
                 )}

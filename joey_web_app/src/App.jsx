@@ -8,6 +8,7 @@ import {VideosScreen} from './components/screens/videos/videos'
 import {NavBar} from './components/navBar/navbar'
 import {NewsScreen} from './components/screens/news/news'
 import {PhotosScreen} from './components/screens/photos/photo'
+import {AdminPage} from './components/adminPage/adminPage'
 function App() {
   return (
     <React.Fragment >
@@ -19,6 +20,7 @@ function App() {
               <Route path = "/videos" exact component = { VideosScreen }/> 
               <Route path = "/photos" exact component = {PhotosScreen}/>  
               <Route path = "/news" exact component = {NewsScreen}/>   
+              <Route path = "/admin" exact component = {AdminPage}/>  
           </Switch > 
           <Footer/>
       </Router>   
