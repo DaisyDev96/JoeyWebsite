@@ -8,13 +8,13 @@
     text-transform: uppercase;
     opacity: 1;
     list-style: none;
-    ;
 }
 
 .navbar {
     top: 0px;
     left: 0px;
     width: 100%;
+    overflow: scroll;
     background: rgb(39, 38, 38) 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     opacity: 1;
