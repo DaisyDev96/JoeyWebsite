@@ -1,5 +1,5 @@
 import React from 'react';
-import { FacebookShareButton,  TwitterShareButton, FacebookIcon , TwitterIcon, PinterestIcon, PinterestShareButton, TumblrShareButton, TumblrIcon } from "react-share";
+import { FacebookShareButton,  TwitterShareButton, FacebookIcon , TwitterIcon,  TumblrShareButton, TumblrIcon } from "react-share";
 export class SharePost extends React.Component {
     render(){
         return (
@@ -19,7 +19,6 @@ export class SharePost extends React.Component {
                     url = {this.props.uri}
                 >
                     <TumblrIcon size={32} round={true}/>
-
                 </TumblrShareButton>        
                                 
             </React.Fragment>

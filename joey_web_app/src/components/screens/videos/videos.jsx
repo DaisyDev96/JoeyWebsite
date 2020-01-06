@@ -1,27 +1,15 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import {database} from '../../../config/config'
-import {SharePost} from './shareVideos'
-
+import LatestVideo from './latestVideo';
 const styles = { 
-    header : {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: 'red',
-        flexDirection : 'row',
-        fontSize : 20,
-        fontWeight : 'bold',
-        backgroundColor :'black',
-    },
     headerText :{
         borderBottomColor : 'green',
         textAlign: 'center',
         color : 'red',
-        borderBottom: '2px solid green',
+        borderBottom: '3px solid green',
         backgroundColor: 'black',
-        fontSize : 30,
-        
+        fontSize : 30
     },
     videos :{
         display: "flex",
@@ -29,6 +17,9 @@ const styles = {
         flexWrap : 'wrap',
         overFlow: 'scroll',
     }, 
+    header : {
+        backgroundColor: ' hsla(0, 0%, 10%,0.9)',    
+    }
 };
     
 export class VideosScreen extends React.Component {
@@ -100,24 +91,17 @@ export class VideosScreen extends React.Component {
             <React.Fragment  >
                 <section>
                     { this.state.mounted === true ?(
-                        <div>            
-                                <h1 style = {styles.headerText}> Latest Video </h1>
-                            <section style = {styles.header } >
-                                <ReactPlayer url = {this.state.latestVideo.uri} controls = {true} fluid = {false} width= '60%' height = '400px'/> 
-                                <section>
-                                    <h5> {this.state.latestVideo.yearRelease }</h5>
-                                    <p> {this.state.latestVideo.songTitle }, {this.state.latestVideo.artist } </p>
-                                    <p> From The Album : {this.state.latestVideo.album }</p>
-
-                                    <SharePost uri = {this.state.latestVideo.uri}/>
-
-                                    
-                                </section>
+                        <div>  
+                            <section style = {styles.header}>
+                                <h1 style= {styles.headerText}> Latest Video </h1>
+                                <LatestVideo latestVideo = {this.state.latestVideo}/>
                             </section>
+                            <section style = {styles.header}>
                                 <h1 style= {styles.headerText}> More Videos </h1>
                                 <section style = {styles.videoList}>
                                     {this.listVideo()}
                                 </section>
+                            </section>
                         </div>    
                     ):(
                         <p> Loading...</p>
