@@ -18,8 +18,6 @@ export class Footer extends React.Component {
                         <SocialIcon className ="socialMediaButton" url ="https://www.youtube.com/user/Music94Maker/videos"/>
                         <SocialIcon className ="socialMediaButton" url ="http://soundcloud.com"/>
                         <SocialIcon className ="socialMediaButton" url ="http://spotify.com"/>                    
-                        <SocialIcon className ="socialMediaButton" url ="https://itunes.apple.com/bf/artist/kendrick-lamar/id368183298"/>
-
                     </div>
                     <h3 >
                         &#169; 2019 Joey Tre' . Built by ChicCode, LLC
