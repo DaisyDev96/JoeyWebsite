@@ -63,6 +63,7 @@ export class VideosScreen extends React.Component {
                             songTitle : videoObj.songTitle,
                             yearRelease: videoObj.yearRelease,
                         })
+                        
                 } 
             }
             that.setState({mounted: true})
@@ -96,11 +97,10 @@ export class VideosScreen extends React.Component {
                                 <h1 style= {styles.headerText}> Latest Video </h1>
                                 <LatestVideo latestVideo = {this.state.latestVideo}/>
                             </section>
+
                             <section style = {styles.header}>
                                 <h1 style= {styles.headerText}> More Videos </h1>
-                                <section style = {styles.videoList}>
-                                    {this.listVideo()}
-                                </section>
+                                    {this.listVideo()}                     
                             </section>
                         </div>    
                     ):(
