@@ -33,29 +33,25 @@ export class HomePageScreen extends React.Component {
                         <div>
                             <HomeHeader/>
 
-                            <section style = {{ backgroundColor: ' hsla(0, 0%, 10%,0.9)'}}>
+                            <section style = {styles.header}>
                                 <h1 style = {styles.headerText}> Latest Video </h1>
                                 <LatestVideo latestVideo = {this.state.latestVideo}/>
                             </section>
 
-                            <section style = {{ backgroundColor: ' hsla(0, 0%, 10%,0.9)'}}>
+                            <section style = {styles.header}>
                                 <h1 style = {styles.headerText}> Bio </h1>
                                 <Bio/>
                             </section>
 
-                            <section style = {{ backgroundColor: ' hsla(0, 0%, 10%,0.9)'}}>
+                            <section style = {styles.header}>
                                 <h1 style = {styles.headerText}> Contact </h1>
                                 <Contact/>
                             </section>
 
-                            <section style = {{ backgroundColor: ' hsla(0, 0%, 10%,0.9)'}}>
+                            <section style = {styles.header}>
                                 <h1 style = {styles.headerText}> Subscribe </h1>
                                 <Subscribe/>
                             </section>
-
-
-
-                            
                         </div>
                     ):
                     (
@@ -74,7 +70,10 @@ const styles = {
         color : 'red',
         borderBottom: '3px solid green',
         backgroundColor: 'black',
-        fontSize : 30,   
+        fontSize : 30   
+    },
+    header : {
+        backgroundColor: ' hsla(0, 0%, 0%, .9)',    
     },
     
 }

@@ -22,11 +22,8 @@ export default class Bio extends React.Component {
 
 const styles = {
     headerText :{
-        borderBottomColor : 'green',
         textAlign: 'center',
         color : 'white',
-        borderBottom: '3px solid green',
-        backgroundColor: ' hsla(0, 0%, 12%,0.9)', 
         justifyContent:'center',
         alignItems:'center'
     },

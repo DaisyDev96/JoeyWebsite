@@ -10,6 +10,7 @@ export default class HomeHeader extends React.Component {
                 <section style = {styles.headerText}>
                     <h1> Joey Tre' </h1>
                     <h2> A True HIP HOP Artist</h2>
+                    <h3> Streaming on All Major Platforms</h3>
                     <img src = {joey} style ={{width : '25%', height : '25%'}}/>
                     <SocialMedia/>
                 </section>

@@ -39,16 +39,18 @@ export default class Subscribe extends React.Component {
             <React.Fragment >
                 <section style = {styles.text}>
                         <h4> Subscribe form </h4>
-                    <form>      
-                        <input style={styles.button} type="text"  placeHolder = "Email Address "value={this.state.email} onChange = {this.updateEmail}  />
-                    </form>
-                <button style ={{width: '15%',
-                    borderRadius : "5%",
-                    color: 'white',
-                    backgroundColor: 'black'
-                }} onClick = {this.updateEmailList}>
-                        Submit 
-                    </button>
+                        <form>      
+                            <input style={{width: '15%',
+                                borderRadius : "5%",
+                                color: 'white'}} type="text"  placeHolder = "Email Address "value={this.state.email} onChange = {this.updateEmail}  />
+                        </form>
+                    <button style ={{width: '15%',
+                            borderRadius : "5%",
+                            color: 'white',
+                            backgroundColor: 'black'
+                        }} onClick = {this.updateEmailList}>
+                            Submit 
+                        </button>
                 </section>
             </React.Fragment>
         );
@@ -57,15 +59,9 @@ export default class Subscribe extends React.Component {
 
 const styles = {
     text :{
-        borderBottomColor : 'green',
         textAlign: 'center',
         color: 'white',
-        fontSize: '20px'      
+        fontSize: '20px',
     },
-    socialMediaButton:  {
-        width : 15,
-        height : 15,
-        margin : 10
-    }
 
 }
