@@ -1,8 +1,12 @@
 import React from 'react';
 import { database } from '../.././../config/config';
 export default class Subscribe extends React.Component {
-    state = {
-        email : ""
+
+    constructor(props){
+        super(props)
+        this.state = {
+            email :"",
+        }
     }
     uniqueId = () =>{
         return this.s4()  + this.s4() + '-' + this.s4() + this.s4() + '-' + this.s4() + this.s4() + '-' +
@@ -38,12 +42,16 @@ export default class Subscribe extends React.Component {
         return (
             <React.Fragment >
                 <section style = {styles.text}>
-                        <h4> Subscribe form </h4>
-                        <form>      
+                        <form>
                             <input style={{width: '15%',
                                 borderRadius : "5%",
-                                color: 'white'}} type="text"  placeHolder = "Email Address "value={this.state.email} onChange = {this.updateEmail}  />
-                        </form>
+                                }}
+                                type="email"  
+                                placeHolder = "Email Address" 
+                                onChange = {this.updateEmail} 
+                                value = {this.state.email} 
+                                />
+                        </form> 
                     <button style ={{width: '15%',
                             borderRadius : "5%",
                             color: 'white',
@@ -51,6 +59,7 @@ export default class Subscribe extends React.Component {
                         }} onClick = {this.updateEmailList}>
                             Submit 
                         </button>
+                    
                 </section>
             </React.Fragment>
         );

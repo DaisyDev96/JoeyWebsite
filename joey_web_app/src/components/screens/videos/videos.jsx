@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
-import {database} from '../../../config/config'
+import {database, f,  auth } from '../../../config/config'
 import LatestVideo from './latestVideo';
+import PlayVideo from './playVideo'
+
 const styles = { 
     headerText :{
         borderBottomColor : 'green',
@@ -18,7 +20,15 @@ const styles = {
         overFlow: 'scroll',
     }, 
     header : {
-        backgroundColor: ' hsla(0, 0%, 10%,0.9)',    
+        backgroundColor: ' hsla(0, 0%, 10%,0.9)'    
+    },
+    upload:{
+        display: "flex",
+        textAlign: 'center',
+        justifyContent:'center',
+        alignItems:'center',
+        flexDirection: 'column'
+
     }
 };
     
@@ -30,10 +40,26 @@ export class VideosScreen extends React.Component {
             mounted : false,
             selectVideo : false,
             videos : [],
-            loadedVideos : false
+            loadedVideos : false, 
+            loggedIn : '',
+            videoUpload : false,
+            youTubeUpload : false
+
         }
     }
-    
+    signInCheck = () => {
+        var that = this;
+        f.auth().onAuthStateChanged(function(user){
+            if(user){
+                // user is logged in 
+                that.setState({ loggedIn : true })
+            }else {
+                 // not logged in 
+                that.setState({  loggedIn : false  })
+            }
+        })
+
+    }
     getLatestVideo = () =>{
         var that = this;
         database.ref('videos/latestVideo').once('value').then(function(snapshot){
@@ -62,6 +88,7 @@ export class VideosScreen extends React.Component {
                             artist : videoObj.artist,
                             songTitle : videoObj.songTitle,
                             yearRelease: videoObj.yearRelease,
+                            videoId : videoKey
                         })
                         
                 } 
@@ -72,14 +99,18 @@ export class VideosScreen extends React.Component {
     componentDidMount(){
         this.getLatestVideo()
         this.getVideos()  
+        this.signInCheck()
     }
+    
     listVideo = () =>{
         if(this.state.mounted === true){
             return (
                 <div style = {styles.videos}>
                     {
                         this.state.videos.map((item) => (
-                                <ReactPlayer controls = {true} url = {item.uri}width = "33.3%"  />                     
+                               // <ReactPlayer controls = {true} url = {item.uri}width = "33.3%"  />
+                                <PlayVideo  url = {item.uri} videoId = {item.videoId}/>
+
                         ))
                     }
                 </div>
@@ -102,6 +133,7 @@ export class VideosScreen extends React.Component {
                                 <h1 style= {styles.headerText}> More Videos </h1>
                                     {this.listVideo()}                     
                             </section>
+                            
                         </div>    
                     ):(
                         <p> Loading...</p>

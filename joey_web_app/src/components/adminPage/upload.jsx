@@ -1,6 +1,6 @@
 import React from 'react';
-import {storage, database} from '../../../config/config'
-import uniqueId from '../../../uniqueId'
+import {storage, database} from '../../config/config'
+import uniqueId from '../../uniqueId'
 
 
 export default class ImageUpload extends React.Component {
@@ -9,8 +9,13 @@ export default class ImageUpload extends React.Component {
     }
     onChangeText = (e) =>{
         if(e.target.files[0]){
-            const img = e.target.files[0]
-            this.setState({img })
+            if(e.target.files[0].type[0] === 'i'){
+                const img = e.target.files[0]
+                this.setState({img })
+            }else {
+                alert('upload images here only')
+            }
+            
         }
     }
     handleUpload = () =>{
@@ -33,8 +38,6 @@ export default class ImageUpload extends React.Component {
                     uri: url, 
                     key: url
                 }
-                
-                this.props.addPhoto(photoObj)
             })
             this.setState({ img : null })
         });
@@ -44,8 +47,7 @@ export default class ImageUpload extends React.Component {
         return (
             <React.Fragment >
                 <div style= {styles.container}>
-                    <p style = {styles.headerText}>Upload Pictures</p>
-                    <input style= {{ marginLeft :'65%'}}type = "file"  onChange = {this.onChangeText}/> 
+                    <input style= {{ marginLeft :'10%'}}type = "file"  onChange = {this.onChangeText}/> 
                     <button onClick = {this.handleUpload} style ={{    marginTop: 5 , height: 25,  paddingVertical :10,
                     paddingHorizontal:10,
                     backgroundColor: 'red',
@@ -63,16 +65,9 @@ const styles = {
         justifyContent: 'center', 
         alignItems:'center',  
         display: 'flex', 
-        flexDirection:'column',
-        backgroundColor: ' hsla(0, 0%, 0%,0.9)' ,
+        flexDirection:'column', 
         color : 'white',
         marginTop: 5
     },
-    headerText:{
-        borderBottomColor : 'green',
-        textAlign: 'center',
-        color : 'red',
-        borderBottom: '3px solid green',
-        backgroundColor: 'black',
-    }
+    
 }

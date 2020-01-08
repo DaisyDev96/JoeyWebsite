@@ -49,7 +49,7 @@ export class HomePageScreen extends React.Component {
                             </section>
 
                             <section style = {styles.header}>
-                                <h1 style = {styles.headerText}> Subscribe </h1>
+                                <h1 style = {styles.headerText}> Subscribe Form </h1>
                                 <Subscribe/>
                             </section>
                         </div>

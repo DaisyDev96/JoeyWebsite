@@ -1,16 +1,34 @@
 import React from 'react';
-import ImageUpload from './upload'
+
 import Photo from './displayPhotos'
-import { database } from '../../../config/config';
+import { database, f, auth  } from '../../../config/config';
 
 export  class PhotosScreen extends React.Component {
     state = {
         photos : [],
         mounted : false, 
-        loggedIn : false
+        loggedIn : false,
+        refresh : 'false'
     }
     componentDidMount (){
         this.getPhotos()
+        this.signInCheck()
+    }
+    signInCheck = () => {
+        var that = this;
+        f.auth().onAuthStateChanged(function(user){
+            if(user){
+                // user is logged in 
+                that.setState({ loggedIn : true })
+            }else {
+                 // not logged in 
+                that.setState({  loggedIn : false  })
+            }
+        })
+
+    }
+    refresh = () =>{
+        this.setState({ refresh: !this.state.refresh})
     }
     getPhotos = () =>{
         var that = this;
@@ -23,15 +41,12 @@ export  class PhotosScreen extends React.Component {
                     var photo = photoData[photoKey]        
                     temptPhotos.push({
                             uri : photo,
-                            key : photo
+                            photoId : photoKey // in data as thekey uniqueid 
                         })      
                 } 
             }
             that.setState({mounted: true})
         }).catch(err => console.log(err))
-    }
-    addPhoto = (photoObj) =>{
-        this.setState({ photos : [...this.state.photos, photoObj]})
     }
     listPhotos= () =>{
         if(this.state.mounted === true){
@@ -39,7 +54,7 @@ export  class PhotosScreen extends React.Component {
                 <div style ={styles.row}>
                             {
                                 this.state.photos.map((item) => (
-                                <Photo url = {item.uri}  key={item.photo} />  
+                                <Photo url = {item.uri}  key={item.photoId} photoId = {item.photoId}/>  
                                 ))
                             } 
                 </div>
@@ -49,14 +64,6 @@ export  class PhotosScreen extends React.Component {
     render(){
         return (
             <React.Fragment >
-                {this.state.loggedIn === true ?(
-                    <section style ={{ display: 'flex', justifyContent:'center', alignItems:'center'}}>
-                    <ImageUpload addPhoto = {this.addPhoto}/>
-                </section>
-                ):(
-                    <section></section>
-                )}
-
                 {this.state.mounted === true ?(
                     <section style = {styles.header}>
                         <h1 style= {styles.headerText}> Gallery  </h1>  
