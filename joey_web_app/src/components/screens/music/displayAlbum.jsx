@@ -12,7 +12,7 @@ export default class Album extends React.Component {
                 <div style = {{width : '45%'}}>
                     { 
                         arr.map((item) => (
-                            <div style = {{borderBottom: '3px solid grey', maxHeight : 50, overflowX:'scroll'}}> 
+                            <div style = {{borderBottom: '3px solid grey', height : 50, overflowX : 'hidden'}}> 
                                 <p style = {{ color : 'red', fontWeight: 'bold'}}>  {index++} <span style = {{ color : 'white', marginLeft: '2%'}}> {item}</span>  </p>
                             </div>
                             
@@ -40,14 +40,17 @@ componentDidMount(){
 }
     render(){
         return (
-            <React.Fragment >
-                <h1 style ={styles.headerText}>{this.props.title} </h1>
-                <div style = {{ display : 'flex', alignContent: 'center', justifyContent: 'center', height : '500px',  backgroundColor: ' hsla(0, 0%, 10%,0.9)', flexShrink: 1 }}>
+            <React.Fragment  >
+                <div style = {{backgroundColor: ' hsla(0, 0%, 10%,0.9)', margin: '3%'}}>
+
+                <div style = {{ display : 'flex', alignContent: 'center', justifyContent: 'center', height : '500px' }}>
                     <section style ={styles.cover}>
                         <img src = {this.props.cover} width = '100%'  height = '100%'/>
                     </section>
-                    <section style = {{ width : '45%', overflowY: 'scroll'}}>
-                        <p style = {{ color : "white"}}> {this.props.date} </p>
+                    <section style = {{ width : '47%', overflowY: 'scroll'}}>
+
+                        <h1 style ={styles.headerText}>{this.props.title} </h1>
+                        <p style = {{ color : "white",  marginTop :-4}}> {this.props.date} </p>
 
                         <section style = {{ display:'flex', width: '100%', justifyContent:'center', flexWrap: 'wrap' }}>
                             {this.listSongs(this.state.songsTempt1, 1 )}
@@ -56,7 +59,7 @@ componentDidMount(){
                         
                     </section>
                 </div>
-
+        </div>
                 
 
             </React.Fragment>
@@ -73,10 +76,10 @@ const styles = {
         fontSize : 30
     },
     cover :{
-        width: '45%',
+        width: '50%',
     },
     songs :{
-        width: '45%',
+        width: '47%',
         display : 'flex',
     },
     headerText :{
@@ -86,5 +89,7 @@ const styles = {
         borderBottom: '1px solid green',
         backgroundColor: 'black',
         fontSize : 30,
+        justifyContent:'center',
+        marginTop :0
     },
 }

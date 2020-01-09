@@ -91,7 +91,7 @@ const styles = {
         display: "flex",
         flexDirection : 'row',
         flexWrap : 'wrap',
-        overFlow: 'scroll',
+        overFlowY: 'scroll',
     }, 
     header : {
         backgroundColor: 'hsla(0, 0%, 10%,0.9)',

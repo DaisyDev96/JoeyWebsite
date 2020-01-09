@@ -34,7 +34,7 @@ export  class MusicScreen extends React.Component {
     listAlbums = () =>{
         if(this.state.mounted === true){
             return (
-                <div>
+                <div >
                     {
                         this.state.albums.map((item) => (
                             <Album songs = {item.songs} title = {item.title} date = {item.date} cover = {item.artWorkUri}/>
