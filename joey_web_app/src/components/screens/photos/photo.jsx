@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Carousel } from 'react-responsive-carousel';
 import Photo from './displayPhotos'
 import { database, f, auth  } from '../../../config/config';
 
@@ -14,6 +14,7 @@ export  class PhotosScreen extends React.Component {
         this.getPhotos()
         this.signInCheck()
     }
+
     signInCheck = () => {
         var that = this;
         f.auth().onAuthStateChanged(function(user){
@@ -42,7 +43,7 @@ export  class PhotosScreen extends React.Component {
                     temptPhotos.push({
                             uri : photo,
                             photoId : photoKey // in data as thekey uniqueid 
-                        })      
+                        })    
                 } 
             }
             that.setState({mounted: true})
@@ -51,13 +52,9 @@ export  class PhotosScreen extends React.Component {
     listPhotos= () =>{
         if(this.state.mounted === true){
             return (
-                <div style ={styles.row}>
-                            {
-                                this.state.photos.map((item) => (
-                                <Photo url = {item.uri}  key={item.photoId} photoId = {item.photoId}/>  
-                                ))
-                            } 
-                </div>
+                    this.state.photos.map((item) => (
+                    <Photo url = {item.uri}  key={item.photoId} photoId = {item.photoId}/>  
+                    ))
             );
         }
     }
@@ -67,7 +64,9 @@ export  class PhotosScreen extends React.Component {
                 {this.state.mounted === true ?(
                     <section style = {styles.header}>
                         <h1 style= {styles.headerText}> Gallery  </h1>  
-                        {this.listPhotos()}                 
+                        <div style = {{ display: 'flex', flexWrap:'wrap', flexDirection : 'row', alignItems:'center', justifyContent:'center' }}>
+                            {this.listPhotos()}
+                        </div>      
                 </section>
                 ):
                 (
@@ -99,7 +98,15 @@ const styles = {
     row : {
         display: "flex",
         flexWrap : 'wrap',
-        marginLeft : "5%"
-        
+        flexDirection:'row'
     },
 }
+const settings = {
+      dots: true,
+      lazyLoad: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      initialSlide: 2
+    };
