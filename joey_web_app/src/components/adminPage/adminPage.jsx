@@ -53,7 +53,7 @@ export  class AdminPage extends React.Component {
                             <h1 style = {styles.headerText}> Upload regular Videos </h1>
                             <VideoUpload/>
                         </section>
-                        <button onClick = {this.signOut} style = {{ backgroundColor: 'green', borderRadius: "50%" , width : '65px', margin: 10, marginLeft:'47%',height : '30px', }}> SignOut </button>
+                        <button onClick = {this.signOut} style = {{ backgroundColor: 'green', borderRadius: "50%" , width : '80px', margin: 10, marginLeft:'47%',height : '30px', }}> SignOut </button>
                     </section>
                 )}
             </React.Fragment>

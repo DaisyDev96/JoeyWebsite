@@ -24,7 +24,8 @@ export  class MusicScreen extends React.Component {
                             songs : albumObj.songs,
                             date: albumObj.date,
                             artWorkUri : albumObj.artWork,
-                            title : albumObj.title
+                            title : albumObj.title,
+                            spotifyUrl: albumObj.spotifyUrl
                         })               
                 } 
             }
@@ -37,7 +38,7 @@ export  class MusicScreen extends React.Component {
                 <div >
                     {
                         this.state.albums.map((item) => (
-                            <Album songs = {item.songs} title = {item.title} date = {item.date} cover = {item.artWorkUri}/>
+                            <Album songs = {item.songs} title = {item.title} date = {item.date} cover = {item.artWorkUri} spotifyUrl= {item.spotifyUrl}/>
                         ))
                     }
                 </div>

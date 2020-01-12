@@ -9,15 +9,18 @@ export default class Album extends React.Component {
     }
     listSongs = (arr, index ) =>{
             return ( 
-                <div style = {{width : '45%'}}>
+                <div style = {{ flex: 1,         /* Distribute space equally among the flex items */
+                minWidth: '200px', /* But force them to be at least300px wide */
+                }}>
                     { 
                         arr.map((item) => (
-                            <div style = {{borderBottom: '3px solid grey', height : 50, overflowX : 'hidden'}}> 
+                            <div style = {{borderBottom: '3px solid grey', height : 50, overflowY:'scroll'}}> 
                                 <p style = {{ color : 'red', fontWeight: 'bold'}}>  {index++} <span style = {{ color : 'white', marginLeft: '2%'}}> {item}</span>  </p>
                             </div>
                             
                         ))
                     }
+                    
                 </div>
             );
     }
@@ -41,21 +44,22 @@ componentDidMount(){
     render(){
         return (
             <React.Fragment  >
-                <div style = {{backgroundColor: ' hsla(0, 0%, 10%,0.9)', margin: '3%'}}>
+                {console.log(this.props)}
+                <div style = {{backgroundColor: ' hsla(0, 0%, 10%,0.9)', margin: '3%', }}>
 
-                <div style = {{ display : 'flex', alignContent: 'center', justifyContent: 'center', height : '500px' }}>
+                <div style = {{ display : 'flex', flexDirection: 'wrap', alignContent: 'center', justifyContent: 'center', height : '600px' }}>
                     <section style ={styles.cover}>
                         <img src = {this.props.cover} width = '100%'  height = '100%'/>
                     </section>
-                    <section style = {{ width : '47%', overflowY: 'scroll'}}>
+                    <section style = {{ width : '47%', overflowY: 'scroll', display : 'flex', flexDirection: 'column'}}>
 
                         <h1 style ={styles.headerText}>{this.props.title} </h1>
                         <p style = {{ color : "white",  marginTop :-4}}> {this.props.date} </p>
 
-                        <section style = {{ display:'flex', width: '100%', justifyContent:'center', flexWrap: 'wrap' }}>
+                        <section style = {{ display:'flex', width: '100%', justifyContent:'center', flexWrap: 'wrap', overflowX : 'scroll' }}>
                             {this.listSongs(this.state.songsTempt1, 1 )}
                             {this.listSongs(this.state.songsTempt2, this.state.index2)}
-                        </section>
+                        </section> 
                         
                     </section>
                 </div>
@@ -77,6 +81,7 @@ const styles = {
     },
     cover :{
         width: '50%',
+        
     },
     songs :{
         width: '47%',

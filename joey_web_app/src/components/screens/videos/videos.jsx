@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
 import {database, f,  auth } from '../../../config/config'
 import LatestVideo from './latestVideo';
 import PlayVideo from './playVideo'
-
 const styles = { 
     headerText :{
         borderBottomColor : 'green',
@@ -30,8 +28,9 @@ const styles = {
         flexDirection: 'column'
 
     }
-};
     
+};
+
 export class VideosScreen extends React.Component {
     constructor(props){
         super(props)
@@ -89,8 +88,7 @@ export class VideosScreen extends React.Component {
                             songTitle : videoObj.songTitle,
                             yearRelease: videoObj.yearRelease,
                             videoId : videoKey
-                        })
-                        
+                        })       
                 } 
             }
             that.setState({mounted: true})
@@ -105,7 +103,7 @@ export class VideosScreen extends React.Component {
     listVideo = () =>{
         if(this.state.mounted === true){
             return (
-                <div style = {styles.videos}>
+                <div className = "row" style = {{ justifyContent:'center', width : '100%', backgroundColor:' hsla(0, 0%, 10%,0.9)' }}>
                     {
                         this.state.videos.map((item) => (
                                // <ReactPlayer controls = {true} url = {item.uri}width = "33.3%"  />
@@ -121,7 +119,7 @@ export class VideosScreen extends React.Component {
     render(){
         return (
             <React.Fragment  >
-                <section>
+                <section  >
                     { this.state.mounted === true ?(
                         <div>  
                             <section style = {styles.header}>
@@ -131,7 +129,7 @@ export class VideosScreen extends React.Component {
 
                             <section style = {styles.header}>
                                 <h1 style= {styles.headerText}> More Videos </h1>
-                                    {this.listVideo()}                     
+                                {this.listVideo()}                     
                             </section>
                             
                         </div>    

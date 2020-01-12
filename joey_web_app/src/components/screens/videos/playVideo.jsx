@@ -21,25 +21,27 @@ export default class PlayVideo extends React.Component {
             }
         })
     }
-    deletePhoto = (id) =>{
+    deleteVideo = (id) =>{
         console.log(id)
         database.ref('videos/'+id).remove()
     }
     render(){
         return (
-            <div style = {{width : '33.3%'}}>
-                
+            <div style = {{ margin : 5}}>           
             <ReactPlayer url = {this.props.url}  />
-
-                <section style = {{display: 'flex', flexDirection:'column' , justifyContent:'center', alignItems:'center'}}>
+                <section style = {{display: 'flex', flexDirection:'column' , justifyContent:'center', alignItems:'center', marginTop :3}}>
                     {this.state.loggedIn === true ? (
-                    <button onClick = {() =>{
-                        this.deletePhoto(this.props.videoId)
-                    }}> Delete </button>
-                ):
-                (
-                    <section></section>
-                )}
+                        <button 
+                            style = {styles.button}
+                            onClick = {() =>{
+                            this.deleteVideo(this.props.videoId)
+                            
+                        }}> Delete </button>
+                        ):
+                        (
+                        <section></section>
+                        )
+                    }
                 </section>
         </div>
         );
@@ -53,5 +55,12 @@ const styles = {
         justifyContent : 'center',
         alignContent : 'center',
     },
+    button: { 
+    backgroundColor: 'red', 
+    borderRadius: "50%" , 
+    width : '70px', 
+    margin: 10, 
+    height : '30px' 
+}
 
 };
