@@ -37,7 +37,7 @@ export class HomePageScreen extends React.Component {
                                 <LatestVideo latestVideo = {this.state.latestVideo}/>
                             </section>
 
-                            <section style = {styles.header}>
+                            <section style = {styles.bio}>
                                 <h1 style = {styles.headerText}> Bio </h1>
                                 <Bio/>
                             </section>
@@ -70,5 +70,8 @@ const styles = {
     header : {
         backgroundColor: ' hsla(0, 0%, 0%, .9)',  
     },
+    bio : {
+        backgroundColor: ' hsla(0, 0%, 0%, .9)',
+    }
     
 }

@@ -14,8 +14,8 @@ export default class Album extends React.Component {
                 }}>
                     { 
                         arr.map((item) => (
-                            <div style = {{borderBottom: '3px solid grey', height : 50, overflowY:'scroll'}}> 
-                                <p style = {{ color : 'red', fontWeight: 'bold'}}>  {index++} <span style = {{ color : 'white', marginLeft: '2%'}}> {item}</span>  </p>
+                            <div style = {{borderBottom: '3px solid grey', height : 50}}> 
+                                <p style = {{ color : 'red', fontWeight: 'bold'}}>  {index++} <span style = {{ color : 'white'}}> {item}</span>  </p>
                             </div>
                         ))
                     }
@@ -46,12 +46,12 @@ componentDidMount(){
                 {console.log(this.props)}
                 <div style = {{backgroundColor: ' hsla(0, 0%, 10%,0.9)', margin: '3%', }}>
 
-                <div style = {{ display : 'flex', flexDirection: 'wrap', alignContent: 'center', justifyContent: 'center', height : '600px' }}>
+                <div style = {{ display : 'flex', flexDirection:'row', alignContent: 'center', justifyContent: 'center', height : '600px' }}>
                     <section style ={styles.cover}>
                         <img src = {this.props.cover} width = '100%'  height = '100%'/>
                     </section>
-                    <section style = {{ width : '47%', overflowY: 'scroll', display : 'flex', flexDirection: 'column'}}>
 
+                    <section style = {{ width : '47%', overflowY: 'scroll', display : 'flex', flexDirection: 'column'}}>
                         <h1 style ={styles.headerText}>{this.props.title} </h1>
                         <p style = {{ color : "white",  marginTop :-4}}> {this.props.date} </p>
 
@@ -67,8 +67,6 @@ componentDidMount(){
                                 allow="encrypted-media">
                             </iframe>
                         </section>
-                        
-                        
                     </section>
                 </div>
         </div>
