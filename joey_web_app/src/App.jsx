@@ -5,13 +5,13 @@ import {Footer} from './components/footer/footer'
 import {HomePageScreen} from './components/screens/homePage/homePage'
 import {MusicScreen} from './components/screens/music/music'
 import {VideosScreen} from './components/screens/videos/videos'
-import {NavBar} from './components/navBar/navbar'
 import {NewsScreen} from './components/screens/news/news'
 import {PhotosScreen} from './components/screens/photos/photo'
 import {AdminPage} from './components/adminPage/adminPage'
 import backgroundPic from '../src/media/Chicago.jpg'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {NavigationBar} from './components/navBar/testBar'
+
 function App() {
   return (
     <React.Fragment >

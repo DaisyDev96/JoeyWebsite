@@ -4,17 +4,15 @@ import { Link } from "react-router-dom";
 import './navbar.css'
 
 export class NavBar extends React.Component {
-    
-
     render(){
         return (
+            
             <div className = 'navbar' >
             <nav>
-
                 <div className = "navLogo" >
                     <p > Joey Tre' </p>              
                 </div>  
-                <ul>
+                <ul className = "navLinks">
                     <Link className = "link" to = "/news" >  <li>  NEWS </li> </Link >
                     <Link className = "link"  to = "/photos">  <li>  PHOTOS </li> </Link >
                     <Link className = "link" to = "/videos" >  <li> VIDEOS </li> </Link >           
@@ -26,3 +24,4 @@ export class NavBar extends React.Component {
         );
         }
 }
+

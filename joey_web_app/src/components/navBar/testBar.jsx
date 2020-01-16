@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const NavigationBar = () => (
 <Styles>
-<Navbar expand="lg">
+<Navbar expand="md">
     <Navbar.Brand href="/">Joey Tre' </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
     <Navbar.Collapse id="basic-navbar-nav">
@@ -31,6 +31,9 @@ font-size: 1.5em;
 font-size: 2.4em;
 color: red;
 &:hover { color: white; }
+}
+.ml-auto{
+    color: white; 
 }
 
 `;
