@@ -21,7 +21,7 @@ export const NavigationBar = () => (
 )
 
 const Styles = styled.div`
-.navbar { background-color: rgb(29, 31, 29); }
+.navbar { background-color: ' hsla(0, 0%, 20%,1)'   }
 a, .navbar-nav, .navbar-light .nav-link {
 color: red;
 font-size: 1.5em;

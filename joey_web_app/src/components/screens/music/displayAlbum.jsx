@@ -17,7 +17,6 @@ export default class Album extends React.Component {
                             <div style = {{borderBottom: '3px solid grey', height : 50, overflowY:'scroll'}}> 
                                 <p style = {{ color : 'red', fontWeight: 'bold'}}>  {index++} <span style = {{ color : 'white', marginLeft: '2%'}}> {item}</span>  </p>
                             </div>
-                            
                         ))
                     }
                     
@@ -60,6 +59,15 @@ componentDidMount(){
                             {this.listSongs(this.state.songsTempt1, 1 )}
                             {this.listSongs(this.state.songsTempt2, this.state.index2)}
                         </section> 
+                        <section style ={{ marginTop: 10}}>
+                            <iframe src={this.props.spotifyUrl} 
+                                width="400" height="70" 
+                                frameborder="0"
+                                allowtransparency="true" 
+                                allow="encrypted-media">
+                            </iframe>
+                        </section>
+                        
                         
                     </section>
                 </div>

@@ -6,6 +6,7 @@ import uniqueId from '../../uniqueId'
 export default class ImageUpload extends React.Component {
     state = {
         img :null,
+        name: ''
     }
     onChangeText = (e) =>{
         if(e.target.files[0]){

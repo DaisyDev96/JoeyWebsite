@@ -1,5 +1,5 @@
 import React from 'react';
-import { database } from '../.././../config/config';
+import { database } from '../../../config/config';
 export default class Subscribe extends React.Component {
 
     constructor(props){
