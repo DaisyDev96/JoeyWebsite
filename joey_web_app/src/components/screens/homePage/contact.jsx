@@ -4,15 +4,11 @@ export default class Contact extends React.Component {
         return (
             <React.Fragment >
                 <section style = {styles.text}>
+                    <p> For Features and Bookies :  email me</p>
                     <p>
-                        500 Terry Francois Street San Francisco, CA 94158
+                        joeytremusic@outlook.com
                     </p>
-                    <p>
-                        daetiana@umich.edu
-                    </p>
-                    <p>
-                        123-456-7890
-                    </p>
+                    
                 </section>
             </React.Fragment>
         );

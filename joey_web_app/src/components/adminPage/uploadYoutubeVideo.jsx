@@ -2,7 +2,7 @@ import React from 'react';
 import { database } from '../../config/config';
 
 
-export default class UploadVideo extends React.Component {
+export default class YoutubeVideo extends React.Component {
     state = {
         uri:  '',
         album: '',
@@ -44,7 +44,7 @@ export default class UploadVideo extends React.Component {
             })
         }
         else{
-            alert('missing some shit daetri')
+            alert('missing some info')
         }
     }
     updateUri = (e) =>{

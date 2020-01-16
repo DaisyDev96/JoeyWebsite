@@ -4,7 +4,6 @@ import {database} from '../../../config/config'
 import LatestVideo from '../videos/latestVideo'
 import Bio from './bio'
 import Contact from './contact'
-import Subscribe  from './suscribe'
 export class HomePageScreen extends React.Component {
     state = {
         latestVideo :{},
@@ -48,10 +47,6 @@ export class HomePageScreen extends React.Component {
                                 <Contact/>
                             </section>
 
-                            <section style = {styles.header}>
-                                <h1 style = {styles.headerText}> Subscribe </h1>
-                                <Subscribe/>
-                            </section>
                         </div>
                     ):
                     (
