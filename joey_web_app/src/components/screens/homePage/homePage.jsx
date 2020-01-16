@@ -4,6 +4,7 @@ import {database} from '../../../config/config'
 import LatestVideo from '../videos/latestVideo'
 import Bio from './bio'
 import Contact from './contact'
+import { wrap } from 'module';
 export class HomePageScreen extends React.Component {
     state = {
         latestVideo :{},
@@ -29,9 +30,8 @@ export class HomePageScreen extends React.Component {
         return (
             <React.Fragment >
                 { this.state.mounted === true ?( 
-                        <div>
+                        <div >
                             <HomeHeader/>
-
                             <section style = {styles.header}>
                                 <h1 style = {styles.headerText}> Latest Video </h1>
                                 <LatestVideo latestVideo = {this.state.latestVideo}/>
@@ -68,7 +68,7 @@ const styles = {
         fontSize : 30   
     },
     header : {
-        backgroundColor: ' hsla(0, 0%, 0%, .9)',    
+        backgroundColor: ' hsla(0, 0%, 0%, .9)',  
     },
     
 }

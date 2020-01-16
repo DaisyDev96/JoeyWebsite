@@ -6,8 +6,11 @@ export default class LatestVideo extends React.Component {
     render(){
         return (
             <React.Fragment >
-                    <section style = {styles.latestVideo } >         
-                        <ReactPlayer url = {this.props.latestVideo.uri} controls = {true} fluid = {false} width= '60%' height = '400px'/> 
+                    <section className = 'row' style = {styles.latestVideo } >    
+                        <section style = {{ width :'60%'}}>
+                            <ReactPlayer url = {this.props.latestVideo.uri} controls = {true} fluid = {false} width= '100%' height = '400px'/> 
+                        </section>
+                        
                         <section>
                             <h6> {this.props.latestVideo.yearRelease } &#169; </h6>
                             <p> {this.props.latestVideo.songTitle }, {this.props.latestVideo.artist } </p>
