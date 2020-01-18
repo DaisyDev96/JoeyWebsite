@@ -4,6 +4,7 @@ export class SharePost extends React.Component {
     render(){
         return (
             <React.Fragment >
+                <h5> Share On Social Media</h5>
                 <FacebookShareButton
                     url={this.props.uri}
                 >

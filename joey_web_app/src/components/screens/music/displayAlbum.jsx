@@ -14,7 +14,7 @@ export default class Album extends React.Component {
                 }}>
                     { 
                         arr.map((item) => (
-                            <div style = {{borderBottom: '3px solid grey', height : 50}}> 
+                            <div style = {{borderBottom: '3px solid grey', height : 50, overflowY: 'hidden', }}> 
                                 <p style = {{ color : 'red', fontWeight: 'bold'}}>  {index++} <span style = {{ color : 'white'}}> {item}</span>  </p>
                             </div>
                         ))
