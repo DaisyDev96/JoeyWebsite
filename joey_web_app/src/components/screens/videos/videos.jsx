@@ -103,7 +103,7 @@ export class VideosScreen extends React.Component {
     listVideo = () =>{
         if(this.state.mounted === true){
             return (
-                <div className = "row" style = {{ justifyContent:'center', width : '100%', backgroundColor:' hsla(0, 0%, 10%,0.9)' }}>
+                <div className = "row" style = {{ justifyContent:'center', width : '100%', backgroundColor:' hsla(0, 0%, 10%,0.9)', overflowX:'hidden' }}>
                     {
                         this.state.videos.map((item) => (
                                // <ReactPlayer controls = {true} url = {item.uri}width = "33.3%"  />

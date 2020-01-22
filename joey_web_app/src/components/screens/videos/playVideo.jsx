@@ -29,7 +29,7 @@ export default class PlayVideo extends React.Component {
         return (
             <div style = {{ margin : 5}}>           
             <ReactPlayer url = {this.props.url}  />
-                <section style = {{display: 'flex', flexDirection:'column' , justifyContent:'center', alignItems:'center', marginTop :3}}>
+                <section style = {{display: 'flex',flexDirection:'column' , justifyContent:'center', alignItems:'center', marginTop :3, }}>
                     {this.state.loggedIn === true ? (
                         <button 
                             style = {styles.button}

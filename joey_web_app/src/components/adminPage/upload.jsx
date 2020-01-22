@@ -12,7 +12,9 @@ export default class ImageUpload extends React.Component {
         if(e.target.files[0]){
             if(e.target.files[0].type[0] === 'i'){
                 const img = e.target.files[0]
-                this.setState({img })
+                this.setState({img : img }, () => {
+                    console.log(this.state)
+                })
             }else {
                 alert('upload images here only')
             }
@@ -20,28 +22,33 @@ export default class ImageUpload extends React.Component {
         }
     }
     handleUpload = () =>{
-        var img = this.state.img;
-        this.setState({name: img.name})
-        var id = uniqueId();
+        if(this.state.img !== null){
+            var img = this.state.img;
+            console.log(this.state)
+            this.setState({name: img.name})
+            var id = uniqueId();
 
-        const uploadTask = storage.ref(`images/${img.name}`).put(img);
-        uploadTask.on('state_changed', (snapshot) =>{
-            // display progress 
-        },
-        (err) =>{
-            alert(err)
-        }, 
-        (complete) => {
-            // once it's done downloading 
-            storage.ref('images').child(img.name).getDownloadURL().then(url  =>{
-                database.ref('photos/'+id).set(url)
-                var photoObj ={
-                    uri: url, 
-                    key: url
-                }
-            })
-            this.setState({ img : null })
-        });
+            const uploadTask = storage.ref(`images/${img.name}`).put(img);
+            uploadTask.on('state_changed', (snapshot) =>{
+                // display progress 
+            },
+            (err) =>{
+                alert(err)
+            }, 
+            (complete) => {
+                // once it's done downloading 
+                storage.ref('images').child(img.name).getDownloadURL().then(url  =>{
+                    database.ref('photos/'+id).set(url)
+                    var photoObj ={
+                        uri: url, 
+                        key: url
+                    }
+                })
+                this.setState({ img : null })
+            });
+    }else {
+        alert('Please Select A Picture')
+    }
 
     }
     render(){

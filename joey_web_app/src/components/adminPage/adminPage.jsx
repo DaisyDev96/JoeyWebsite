@@ -80,6 +80,15 @@ const styles = {
         justifyContent: 'center', 
         alignContent:'center',
         flexDirection : 'column'  
+    },
+    header2: {
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignContent:'center',
+        flexDirection : 'column'  ,
+        width : '100%',
+        height: '100%',
+        backgroundColor: 'pink'
 
     }
 };

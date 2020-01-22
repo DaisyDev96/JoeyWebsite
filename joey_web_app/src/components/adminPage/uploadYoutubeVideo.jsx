@@ -71,7 +71,7 @@ export default class YoutubeVideo extends React.Component {
         return (
             <section style = {styles.header}>
                 <form>
-                        uri:
+                        url:
                         <input type="text" value={this.state.uri} onChange = {this.updateUri}  />
 
                     <label>
